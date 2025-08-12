@@ -1,0 +1,27 @@
+npx create-vite frontend --template react
+cd frontend
+npm install
+npm install axios react-router-dom
+npm install axios
+
+// Cai dat alias
+npm install path
+* Cau hinh vite.config.js
+    resolve: {
+        alias: {
+            "~": path.resolve(__dirname, "src"),
+        },
+    },
+
+// Cai dat scss
+npm install sass
+npm i classnames
+npm install normalize.css
+
+// Fontawesome
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+
+// Thu vien ho tro
+npm i react-multi-carousel

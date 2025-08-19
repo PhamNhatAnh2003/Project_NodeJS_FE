@@ -1,0 +1,12 @@
+.default-header {
+    background-color: var(--primary) !important;
+    box-shadow: rgba(3, 18, 26, 0.2) 0px 1px 2px;
+}
+
+.content {
+    position: relative;
+    padding-top: var(--header-height);
+    width: var(--content-width);
+    padding-bottom: 20px;
+    margin: auto;
+}

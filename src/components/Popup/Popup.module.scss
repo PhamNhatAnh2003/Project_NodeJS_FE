@@ -1,0 +1,85 @@
+.popup-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  min-width: 300px;
+  height: auto;             
+  max-height: 90vh;         
+  min-height: 200px;         
+  background-color: rgba(229, 226, 226, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;      
+  padding: 2%;
+  border-radius: 10px;
+  overflow-y: auto;          
+}
+
+/* Nội dung chính */
+.popup-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%; /* 👈 khớp với popup-wrapper */
+}
+
+.head-content {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column; /* ép các span xuống dòng */
+  text-align: center;     /* căn giữa ngang */
+  gap: 6px;               /* khoảng cách giữa 2 dòng */
+  font-size: 18px;        /* chỉnh cỡ chữ */
+  font-weight: 600;       /* làm đậm */
+  color: #333;            /* màu chữ */
+}
+/* Input group */
+.input {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+  width: 100%;; 
+}
+
+/* Input */
+.input input {
+  margin-top: -5%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  width: 100%; /* 👈 full chiều ngang của .input */
+  box-sizing: border-box; /* 👈 không bị tràn */
+}
+
+.input input:focus {
+  border-color: #6300B3;
+  box-shadow: 0 0 4px rgba(123, 47, 247, 0.4);
+}
+
+.upload-box {
+  margin-top: 2%;
+  background-color: white;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center; 
+}
+
+.popup-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-submit{
+  background-color: #6300B3; 
+    color: white !important;
+}

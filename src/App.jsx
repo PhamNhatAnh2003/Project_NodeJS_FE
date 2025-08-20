@@ -3,9 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { publicRoutes, privateRoutes } from "./routes";
 import UserDefault from "./Layouts/user/Default/UserDefault";
 import PrivateRoute from "./routes/PrivteRoute";
+import Popup from "./components/Popup";
+import Input from "./components/Input";
 
 function App() {
   return (
+      // <>
+      // <Popup />
+      // </>
+
     <Router>
       <div className="App">
         <Routes>

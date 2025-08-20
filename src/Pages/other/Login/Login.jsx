@@ -1,55 +1,46 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { loginUser, register } from "@/redux/features/authSlice";
 import styles from "./Login.module.scss";
 import images from "@/assets/images";
-
-const API_URL = import.meta.env.VITE_API_URL;
+import Input from "../../../components/Input";
 
 export default function AuthForm() {
   const [isActive, setIsActive] = useState(false);
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [firstname, setFirstname] = useState("");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { loading, error, user, token } = useSelector((state) => state.auth);
 
-  // Hàm login
-  const handleLogin = async () => {
-    setLoading(true);
-    try {
-    const res = await axios.post(`http://localhost:5000/api/users/login/user`, {
-      username,
-      password,
-    });
+  const handleLogin = () => {
+    dispatch(loginUser({ username, password }))
+      .unwrap()
+      .then((res) => {
+        console.log("Login thành công:", res);
+        navigate("/"); // hoặc config.routes.user.home
+      })
+      .catch((err) => {
+        console.error("Login thất bại:", err);
+      });
+  };
 
-      // nếu API trả về data chứa user và token
-      if (res.data && res.data.user && res.data.token) {
-        localStorage.setItem("user_id", res.data.user.id);
-        localStorage.setItem("user_token", res.data.token);
-
-        setError("");
-
-        const nextUrl = localStorage.getItem("next");
-        if (nextUrl) {
-          navigate(nextUrl);
-          localStorage.removeItem("next");
-        } else {
-            console.log("Login successful:", res.data);
-          navigate(config.routes.user.home);
-        }
-      } else {
-        setError("Sai email hoặc mật khẩu!");
-      }
-    } catch (err) {
-      const errorMessage =
-        err.response?.data?.message || "Đã có lỗi xảy ra. Vui lòng thử lại!";
-      setError(errorMessage);
-    } finally {
-      setLoading(false);
-    }
+  const handleSignUp = () => {
+    dispatch(register({ username, password, lastname, firstname }))
+      .unwrap()
+      .then((res) => {
+        console.log("Đăng ký thành công:", res);
+        // Có thể tự động đăng nhập hoặc chuyển hướng đến trang đăng nhập
+        navigate("/home");
+      })
+      .catch((err) => {
+        console.error("Đăng ký thất bại:", err);
+      });
   };
 
   return (
@@ -65,10 +56,34 @@ export default function AuthForm() {
               <img src={images.avatar} alt="login-poster" />
             </div>
             <span>Or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button type="button">Sign Up</button>
+            <input
+              type="username"
+              placeholder="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="lastname"
+              placeholder="lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
+            <input
+              type="firstname"
+              placeholder="firstname"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="button" onClick={handleSignUp} disabled={loading}>
+              {loading ? "Loading..." : "Sign Up"}
+            </button>
+            {error && <p className={styles.error}>{error}</p>}
           </form>
         </div>
 
@@ -104,7 +119,7 @@ export default function AuthForm() {
         <div className={styles.toggleContainer}>
           <div className={styles.toggle}>
             <div className={classNames(styles.togglePanel, styles.toggleLeft)}>
-              <h1>Welcome Back</h1>
+              <h1>Welcome</h1>
               <p>Enter your personal details to use all of site features</p>
               <button className="hidden" onClick={() => setIsActive(false)}>
                 Sign In

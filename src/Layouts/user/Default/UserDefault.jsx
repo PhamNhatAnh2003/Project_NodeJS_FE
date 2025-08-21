@@ -1,17 +1,17 @@
 import classNames from "classnames/bind";
-
+import Footer from "../../../components/Footer/Footer";
 import styles from "./UserDefault.module.scss";
-// import UserHeader from "../components/Header/UserHeader";
-// import Footer from "../components/Footer/Footer";
+import HeaderUser from "../HeaderUser/HeaderUser";
+
 
 const cx = classNames.bind(styles);
 
 const UserDefault = ({ children }) => {
   return (
     <div className={cx("user-default-layout")}>
-      {/* <UserHeader className={cx("default-header")} /> */}
+      <HeaderUser className={cx("default-header")} />
       <div className={cx("content")}>{children}</div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

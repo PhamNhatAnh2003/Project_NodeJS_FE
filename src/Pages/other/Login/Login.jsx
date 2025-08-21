@@ -36,7 +36,7 @@ export default function AuthForm() {
       .then((res) => {
         console.log("Đăng ký thành công:", res);
         // Có thể tự động đăng nhập hoặc chuyển hướng đến trang đăng nhập
-        navigate("/home");
+        navigate("/");
       })
       .catch((err) => {
         console.error("Đăng ký thất bại:", err);

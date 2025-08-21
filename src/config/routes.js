@@ -1,5 +1,6 @@
 const routes = {
   user: {
+    home : "/",
 
   },
 
@@ -13,7 +14,7 @@ const routes = {
 
   other: {
     test: "/test",
-    login: "/",
+    login: "/login",
   },
 };
 

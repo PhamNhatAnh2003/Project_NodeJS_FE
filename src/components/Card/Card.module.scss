@@ -1,0 +1,118 @@
+.card {
+  background: #faf5ff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-family: sans-serif;
+  width: 25%;
+  height: auto;
+}
+
+.card-container{
+    margin-left: 10px;
+}
+
+.title {
+  display: flex;
+  align-items: center; // căn giữa theo chiều dọc
+  justify-content: space-between; // đẩy h4 sang trái, img sang phải
+  gap: 10px; // khoảng cách giữa chữ và ảnh (nếu cần)
+  margin-bottom: 10px;
+
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0; // bỏ margin mặc định
+    flex: 1; // để chữ chiếm không gian còn lại
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0; // tránh ảnh bị co
+  }
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; // nếu nhiều thì tự xuống hàng
+}
+
+.tag-green {
+  background-color: #e6f7ec;  // nền xanh nhạt
+  color: #00c853;  
+  font-weight: 600;  // chữ xanh đậm
+  margin-right: 10px;
+}
+
+.tag-purple {
+  background-color: #f3e8ff;  // nền tím nhạt
+  color: #9b4de0;   
+  font-weight: 600;          // chữ tím đậm
+}
+
+
+.company {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+
+  .logo {
+    width: 32px;
+    height: 32px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-weight: bold;
+  }
+
+  .info {
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #6b7280;
+    }
+  }
+}
+
+.location,
+.salary {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 15px;
+
+  .days {
+    margin-left: 20px;
+    font-size: 12px;
+    color: #9ca3af;
+  }
+}
+
+.btn-detail {
+    margin-left: 40px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #8b5cf6;
+  background: white;
+  color: #6d28d9;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #8b5cf6;
+    color: white;
+  }
+}

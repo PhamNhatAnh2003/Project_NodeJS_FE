@@ -1,0 +1,91 @@
+.banner-wrapper {
+  width: 100%;
+  background: #E2CCF2; // nền sáng cho banner
+  padding: 20px 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+
+  .banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .banner-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-left: 100px;
+
+      .banner-text {
+        h1 {
+          font-size: 36px;
+          font-weight: 700;
+          margin-bottom: 10px;
+          color: #333;
+        }
+        span {
+          font-size: 16px;
+          color: #666;
+        }
+      }
+
+      .banner-search {
+        display: flex;
+        gap: 10px;
+
+        .search-input {
+          flex: 1;
+          padding: 12px 15px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          font-size: 14px;
+
+          &:focus {
+            outline: none;
+            border-color: #007bff;
+          }
+        }
+      }
+
+      span {
+        font-size: 14px;
+        color: #999;
+      }
+    }
+
+    .banner-right {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden; // đảm bảo ảnh không tràn ra ngoài
+  margin-left: 200px;
+
+  img {
+    width: 50%;
+    object-fit: cover; // hoặc 'contain' nếu muốn toàn bộ ảnh hiển thị
+    display: block;
+  }
+}
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .banner-content {
+    flex-direction: column;
+    gap: 30px;
+
+    .banner-right {
+      width: 100%;
+      height: 200px;
+    }
+
+    .banner-left {
+      .banner-text h1 {
+        font-size: 28px;
+      }
+    }
+  }
+}

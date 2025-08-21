@@ -8,6 +8,11 @@ const publicRoutes = [
     element: Pages.other.login,
     layout: Layouts.other.noHeader,
   },
+  {
+    path: config.routes.user.home,
+    element: Pages.user.home,
+    layout: Layouts.user.default,
+  },
 ];
 
 const privateRoutes = [

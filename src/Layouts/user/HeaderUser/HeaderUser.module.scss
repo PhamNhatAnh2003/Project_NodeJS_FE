@@ -1,0 +1,107 @@
+.header-wrapper{
+    height: 80px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display:  flex;
+    align-items: center;
+    height: 100%; 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 35px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 600;
+    color: #6300B3;    
+  }
+
+  .header-content{
+    display: flex;
+    align-items: flex-end;
+    width: 30%;
+    gap: 20px;
+    font-size: 15px;
+    position: relative;
+    top: 4px; 
+  }
+
+
+.nav-item {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 6px 10px;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    color: #6300b3;  /* tím khi hover */
+  }
+}
+
+.active {
+  color: #6300b3;          /* đổi màu chữ khi active */
+  border-bottom: 2px solid #6300b3;  /* underline tím */
+  font-weight: 600;
+}
+
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white !important
+}
+
+/* Nút Liên hệ */
+.actions {
+    margin-left: 300px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Nút Liên hệ */
+.contact {
+  padding: 10px 20px;
+  border: 1px solid #6300b3;   /* viền tím mảnh */
+  background: #fff;
+  color: #6300b3;
+  font-weight: 600;
+  border-radius: 0;            /* vuông góc */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact:hover {
+  background: #f9f0ff;         /* nền tím nhạt khi hover */
+}
+
+/* Nút Đăng nhập */
+.login-btn {
+  padding: 10px 20px;
+  border: 1px solid #6300b3;   /* viền mảnh */
+  background: #6300b3;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #9e9c9c;
+  color: #6300b3;
+}

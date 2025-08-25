@@ -105,3 +105,33 @@
   background: #9e9c9c;
   color: #6300b3;
 }
+
+.user-menu {
+  margin-left: 300px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  width: 100px;
+  position: absolute;
+  top: 100%; /* nằm ngay dưới avatar */
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1000; /* cao hơn các phần tử khác */
+  display: none; /* mặc định ẩn */
+}
+
+.user-menu:hover .dropdown {
+  display: block; /* hiện khi hover vào user-menu */
+}
+
+.avatar {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}

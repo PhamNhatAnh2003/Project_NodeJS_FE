@@ -1,11 +1,19 @@
+.footer{
+       background: linear-gradient(
+    to right,
+    #C599E5,     
+    #E2CCF2,    
+    #C599E5      
+  ); 
+}
+
 .footer-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
   gap: 40px;
-  background: #E2CCF2;
+  // background: #E2CCF2;
   padding: 30px 20px;
   font-family: Arial, sans-serif;
-
 }
 
 .footer-left,
@@ -27,6 +35,26 @@
   color: #333;
 }
 
+.footer-bottom-wrapper {
+  display: flex;
+  align-items: center;  /* căn giữa theo chiều dọc */
+  justify-content: center; /* căn giữa theo chiều ngang */
+  gap: 12px; /* khoảng cách giữa line và text */
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.line {
+  flex: 1; /* chiếm toàn bộ không gian còn lại */
+  height: 3px;
+  background-color: #ccc;
+}
+
+.footer-bottom {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap; /* tránh xuống dòng */
+}
 /* Responsive cho mobile */
 @media (max-width: 768px) {
   .footer-wrapper {

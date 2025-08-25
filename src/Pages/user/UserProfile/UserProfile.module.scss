@@ -1,0 +1,71 @@
+.wrapper{
+    padding: 20px;
+    background-color: white;
+}
+
+.header-top{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding-top: 10px;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to right, #a249e1, #fbf6ff);
+    margin-bottom: 50px;
+}
+
+.content{
+  width: 100%;
+  height: auto;
+  border: 2px solid #000000; /* màu viền */
+  border-radius: 6px;           
+}
+
+.top-content{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ava{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .avatar{
+        display: flex;
+        justify-content: center;
+    }
+
+    .infor{
+        width: auto;
+    }
+}
+
+.main-content{
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px; 
+}
+
+.left, .right {
+  flex: 1; /* chiếm 50% nếu có 2 cột */
+  background-color: #ffffff; /* màu nền ví dụ */
+  padding: 10px;
+}
+.input-item{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input {
+  border-radius: 10px;
+  border: 3px solid #6300B3; /* màu viền */
+  height: 40px;
+  padding-left: 10px;
+}

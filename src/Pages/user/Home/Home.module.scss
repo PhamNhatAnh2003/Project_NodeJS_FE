@@ -19,6 +19,17 @@
   max-width: calc(25% - 20px);
 }
 
+.view-all{
+    cursor: pointer;
+    color: #ac42f8;
+    text-Decoration: underline;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}
+
 @media (max-width: 1024px) {
   .card {
     flex: 1 1 calc(50% - 20px); // 2 card mỗi hàng

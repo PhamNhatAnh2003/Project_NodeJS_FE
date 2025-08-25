@@ -3,6 +3,7 @@ import vector from "./vector.png";
 import Dollar from "./DollarCoin.png";
 import PlaceMarker from "./PlaceMarker.png";
 import Banner from "./Banner.png";
+import pushpin from "./pushpin.png"
 
 const images = {
   avatar: reactimage,
@@ -10,6 +11,7 @@ const images = {
   Dollar: Dollar,
   PlaceMarker: PlaceMarker,
   Banner: Banner,
+  pushpin:pushpin,
 };
 
 export default images;

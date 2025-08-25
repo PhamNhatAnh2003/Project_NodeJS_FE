@@ -1,10 +1,9 @@
-// src/redux/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-// Thunk để gọi API login
+// Thunk login
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ username, password }, { rejectWithValue }) => {
@@ -15,11 +14,7 @@ export const loginUser = createAsyncThunk(
       });
 
       if (res.data && res.data.user && res.data.token) {
-        // lưu localStorage
-        localStorage.setItem("user_id", res.data.user.id);
-        localStorage.setItem("user_token", res.data.token);
-
-        return res.data; // trả về dữ liệu cho reducer
+        return res.data; // Trả về user + token
       } else {
         return rejectWithValue("Sai tài khoản hoặc mật khẩu!");
       }
@@ -31,6 +26,7 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+// Thunk register
 export const register = createAsyncThunk(
   "auth/register",
   async ({ username, password, lastname, firstname }, { rejectWithValue }) => {
@@ -42,18 +38,18 @@ export const register = createAsyncThunk(
         last_name: lastname,
       });
 
-     if (res.data && res.data.user) {
-       return res.data;
-     } else {
-       return rejectWithValue("Đăng ký không thành công!");
-     }
+      if (res.data && res.data.user) {
+        return res.data;
+      } else {
+        return rejectWithValue("Đăng ký không thành công!");
+      }
     } catch (err) {
       return rejectWithValue(
         err.response?.data?.message || "Đã có lỗi xảy ra. Vui lòng thử lại!"
       );
     }
-  });
-
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
@@ -67,12 +63,11 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.token = null;
-      localStorage.removeItem("user_id");
-      localStorage.removeItem("user_token");
     },
   },
   extraReducers: (builder) => {
     builder
+      // login
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -87,20 +82,19 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
 
-        //  register
+      // register
       .addCase(register.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.loading = false;
-        // có thể lưu user luôn hoặc chỉ báo đăng ký thành công
         state.user = action.payload.user || null;
       })
       .addCase(register.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      })
+      });
   },
 });
 

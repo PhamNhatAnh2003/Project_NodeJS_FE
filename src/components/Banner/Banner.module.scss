@@ -1,6 +1,11 @@
 .banner-wrapper {
   width: 100%;
-  background: #E2CCF2; // nền sáng cho banner
+   background: linear-gradient(
+    to right,
+    #C599E5,     
+    #E2CCF2,    
+    #C599E5      
+  ); 
   padding: 20px 20px;
   box-sizing: border-box;
   margin-bottom: 20px;

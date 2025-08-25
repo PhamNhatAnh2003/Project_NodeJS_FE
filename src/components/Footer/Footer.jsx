@@ -5,6 +5,7 @@ import images from "@/assets/images";
 const cx = classNames.bind(styles);
 const Footer = () => {
     return (
+      <div className={cx("footer")}>
       <div className={cx("footer-wrapper")}>
         <div className={cx("footer-left")}>
           <div className={cx("left-1")}>
@@ -39,6 +40,12 @@ const Footer = () => {
             <span>Phạm Nhật Anh</span>
             <span>Team Sora</span>
           </div>
+        </div>
+        </div>
+        <div className={cx("footer-bottom-wrapper")}>
+          <div className={cx("line")}></div>
+          <div className="footer-bottom">@2025 Tạo bởi nhóm Sora_ITSS2</div>
+          <div className={cx("line")}></div>
         </div>
       </div>
     );

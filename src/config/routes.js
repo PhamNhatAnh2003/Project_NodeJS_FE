@@ -1,16 +1,14 @@
 const routes = {
   user: {
-    home : "/",
-
+    home: "/",
+    jobs: "/jobs",
+    userProfile: "/profile",
+    jobDetail: "/jobDetail/:id",
   },
 
-  staff: {
+  staff: {},
 
-  },
-
-  admin: {
-
-  },
+  admin: {},
 
   other: {
     test: "/test",

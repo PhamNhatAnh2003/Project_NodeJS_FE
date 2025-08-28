@@ -1,5 +1,5 @@
 import reactimage from "./react.svg";
-import vector from "./vector.png";
+import vector from "./Vector.png";
 import Dollar from "./DollarCoin.png";
 import PlaceMarker from "./PlaceMarker.png";
 import Banner from "./Banner.png";

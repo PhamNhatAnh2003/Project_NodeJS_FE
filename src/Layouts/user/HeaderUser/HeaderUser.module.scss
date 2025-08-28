@@ -3,6 +3,7 @@
     width: 100%;
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #010101;
 }
 
 .container{
@@ -24,7 +25,8 @@
 .title{
     font-size: 30px;
     font-weight: 600;
-    color: #6300B3;    
+    color: #6300B3; 
+    cursor: pointer;   
   }
 
   .header-content{

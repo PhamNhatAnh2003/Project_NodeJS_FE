@@ -13,7 +13,7 @@
 }
 
 .search-name {
-    margin-left: 50px;
+  margin-left: 50px;
   display: flex;
   align-items: center; /* căn giữa theo chiều dọc */
   gap: 10px; /* khoảng cách giữa input và button */
@@ -28,36 +28,119 @@
 }
 
 .btn {
-    height: 40px;
+  height: 40px;
   padding: 10px 20px;
   border: 1px solid #6300b3;   /* viền mảnh */
   background: #6300b3;
   color: #fff !important;
   border-radius: 0;
   cursor: pointer;
-  margin-right: 20px;
+  // margin-right: 20px;
   margin-top: 5px;
 }
 
 .content{
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 
 }
 
+.title{
+  color: #000000;
+  font-size: 18px;
+   font-weight: bold;
+}
+
 .left-content{
+  width: 25%;
+  margin-top: 20px;
+}
+
+.main-left{
+    background-color: #f2f2f2;
+    padding-top: 10px;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #f2f2f2;
+    min-height: 100vh; /* Sidebar full chiều cao */
+    border-right: 1px solid #ccc;
+    border-radius: 8px;
 
     .item{
         display: flex;
         flex-direction: column;
+        padding: 10px;
+        gap:10px;
     }
+
+    .item label {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Khoảng cách giữa checkbox và text */
+  font-size: 14px;
+  cursor: pointer;
+  }
+
 }
 
+.inputs {
+  display: flex;
+  gap: 8px;
+  padding: 5px 5px;
+   width: 100%;
+  }
+
+.inputs input {
+  padding: 20px;
+  flex: 1; /* Input tự giãn chiếm đều */
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
 .line{
+  margin-bottom: 15px;
   height: 3px;
   background-color: #ccc;
+}
+
+.filter{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* đẩy sang phải */
+  align-items: center; /* căn giữa theo chiều dọc */
+}
+
+.right-content{
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.top-main{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-right{
+   padding-top: 10px;
+  flex: 1;
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 100vh; /* Sidebar full chiều cao */
+}
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cột bằng nhau */
+  gap: 30px; /* khoảng cách giữa các card */
+  padding: 16px 0;
 }

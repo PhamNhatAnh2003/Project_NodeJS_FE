@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { formatPrice, formatDateTime } from "../../../utils/stringUtil";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -16,6 +16,8 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import Schedule from "@mui/icons-material/WorkOutline";
 import styles from "./JobDetail.module.scss";
 import classNames from "classnames/bind";
+import Button from "../../../components/Button/Button";
+import { useSelector } from "react-redux";
 
 const cx = classNames.bind(styles);
 
@@ -24,19 +26,31 @@ const JobDetail = () => {
   const [job, setJob] = useState(null);
   const [showSchedule, setShowSchedule] = useState(false);
   const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user); // Lấy user từ Redux
 
   useEffect(() => {
     const fetchJob = async () => {
       try {
-             const res = await getJobsbyId(id); // có thể truyền filter
-               setJob(res.data);
-               console.log(res);
+        const res = await getJobsbyId(id); // có thể truyền filter
+        setJob(res.data);
+        console.log(res);
       } catch (err) {
         console.error("Lỗi khi gọi API:", err);
       }
     };
     fetchJob();
   }, [id]);
+
+    const handleApply = useCallback(() => {
+      if (!user) {
+        // Chưa đăng nhập → điều hướng sang login
+        navigate("/login");
+      } else {
+        // Đã đăng nhập → thực hiện ứng tuyển
+        console.log("Ứng tuyển công việc:", job.id);
+        // Gọi API apply job ở đây
+      }
+    });
 
   if (!job) {
     return <div>Loading...</div>;
@@ -53,7 +67,9 @@ const JobDetail = () => {
             </h1>
             <div className={cx("badges")}>
               <span className={cx("badge", "type-v")}>{job.jobType}</span>
-              <span className={cx("badge", "category-v")}>{job.jobCategory}</span>
+              <span className={cx("badge", "category-v")}>
+                {job.jobCategory}
+              </span>
             </div>
           </div>
 
@@ -129,14 +145,12 @@ const JobDetail = () => {
                 </div>
                 <div className={cx("company-info")}>
                   <div className={cx("company-name")}>{"images.avatar"}</div>
-                  <div className={cx("company-location")}>
-                    {job.location}
-                  </div>
+                  <div className={cx("company-location")}>{job.location}</div>
                 </div>
               </div>
               <div className={cx("info")}>
                 <li>
-                  <PeopleIcon /> {''}
+                  <PeopleIcon /> {""}
                 </li>
                 <li>
                   <Inventory2Icon /> {"job.company.industry"}
@@ -144,6 +158,13 @@ const JobDetail = () => {
                 <li>
                   <LocationOnIcon /> {"job.company.location"}
                 </li>
+              </div>
+              <div className={cx("apply")}>
+                <Button 
+                onClick={handleApply} 
+                className={cx("btn")}>
+                  Ứng Tuyển
+                </Button>
               </div>
             </div>
           </div>

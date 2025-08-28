@@ -121,6 +121,16 @@ padding-left: 30px;
   margin-bottom: 8px;
 }
 
+.apply{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn{
+  background-color: #6b21a8;
+  color: white;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .basic-info {

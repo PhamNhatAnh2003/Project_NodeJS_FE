@@ -24,7 +24,9 @@ console.log("User in HeaderUser:", user);
       <div className={cx("container")}>
         <div className={cx("logo")}>
           <span className={cx("icon")}></span>
-          <span className={cx("title")}>HUSTCareer</span>
+          <span
+          onClick={() => navigate(config.routes.user.home)}
+           className={cx("title")}>HUSTCareer</span>
         </div>
         <div className={cx("header-content")}>
           <NavLink

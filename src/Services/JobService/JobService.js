@@ -27,3 +27,18 @@ export const getJobsbyId = async (id) => {
   }
 };
 
+export const getAllJob = async () => {
+  try {
+    const res = await axios.get(`${API_URL}/jobs/all-job`);
+    console.log(res.data.data);
+    return res.data.data;
+  } catch (err) {
+    const errorMessage =
+      err.response && err.response.data && err.response.data.message
+        ? err.response.data.error
+        : "Đã có lỗi xảy ra. Vui lòng thử lại";
+
+    return { success: false, message: errorMessage };
+  }
+}
+

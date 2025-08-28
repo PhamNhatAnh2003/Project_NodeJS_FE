@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginUser, register } from "@/redux/features";
+import { loginUser, register } from "@/redux/features/authSlice";
 import styles from "./Login.module.scss";
 import images from "@/assets/images";
 import Input from "../../../components/Input";
